@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class LoginController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("GET method called...");
+        System.out.println("doGET method called...");
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
