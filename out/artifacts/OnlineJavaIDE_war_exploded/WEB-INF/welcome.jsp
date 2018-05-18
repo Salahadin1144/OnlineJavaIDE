@@ -11,6 +11,20 @@
     <title>Title</title>
 </head>
 <body>
-    Welcome to BSF Online Java IDE! You can create as many java projects, edit them, compile and run them. We will manage things for you.
+
+
+
+    <header style="width: 100%; height: 50px; border: 1px solid #660066; border-radius: 1px;">
+        ${userInfo.userName} and ${userInfo.password}
+    </header>
+
+    <div id="content">
+        Welcome to BSF Online Java IDE! You can create as many java projects, edit them, compile and run them. We will manage things for you.
+    </div>
+
+    <footer>
+        &copy;2018
+    </footer>
+
 </body>
 </html>
