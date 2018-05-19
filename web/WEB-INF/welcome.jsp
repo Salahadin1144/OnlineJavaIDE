@@ -14,6 +14,7 @@
         * {
             margin: 0px;
             padding: 1px;
+            font-size: 12px;
         }
 
         #content {
@@ -24,6 +25,12 @@
             height: 100%;
             margin: 0px;
             padding: 1px;
+        }
+
+        .panel-heading{
+            height: 32px;
+
+            vertical-align: text-top;
         }
 
         .navbar {
