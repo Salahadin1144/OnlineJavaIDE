@@ -110,7 +110,10 @@
                                         <p class="text-left"><strong>User</strong></p>
                                         <p class="text-left small">user@gmail.com</p>
                                         <p class="text-left">
-                                            <a href="#" class="btn btn-primary btn-block btn-sm">Logout</a>
+                                            <form action="/logout">
+                                                <input type="submit" value="logout">
+                                            </form>
+                                            <!--  <a href="#" class="btn btn-primary btn-block btn-sm">Logout</a> -->
                                         </p>
                                     </div>
                                 </div>
