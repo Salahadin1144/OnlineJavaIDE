@@ -3,9 +3,7 @@ package businesslogic;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
@@ -24,23 +22,40 @@ public class LoginController extends HttpServlet {
         UserController users = new UserController();
         List<User> userList = users.getUserList();
 
+        boolean validUser = false;
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         for(User user: userList){
             if(user.getUserName().equals(userName) && user.getPassword().equals(password)) {
+                validUser = true;
                 System.out.println(user.getUserName()+" "+user.getPassword());
-
-                dispatcher = request.getRequestDispatcher("WEB-INF/welcome.jsp");
-                request.setAttribute("userInfo", user);
+                HttpSession loginSession = request.getSession();
+                loginSession.setAttribute("userInfo", user);
+                //setting session to expiry in 30 mins
+                loginSession.setMaxInactiveInterval(30*60);
+                Cookie cookieUserName = new Cookie("userName", userName);
+                cookieUserName.setMaxAge(30*60);
+                response.addCookie(cookieUserName);
+                //response.sendRedirect("LoginSuccess.jsp");
+                try {
+                    //response.sendRedirect("WEB-INF/welcome.jsp");
+                    dispatcher = request.getRequestDispatcher("WEB-INF/welcome.jsp");
+                    dispatcher.forward(request, response);
+                } catch (IOException | ServletException e) {
+                    e.printStackTrace();
+                }
+                //dispatcher = request.getRequestDispatcher("WEB-INF/welcome.jsp");
                 break;
             }
         }
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(!validUser){
+            try {
+                response.sendRedirect("index.jsp");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
 
     }
 

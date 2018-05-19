@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--link rel="stylesheet" href="OnlineJavaIDE.css"-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+    <script src="../js/project.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
@@ -148,7 +148,12 @@
                 <div class="panel-heading" style="text-align: left">Project Explorer</div>
                 <div class="panel-body">
                     Panel Content:
-                    <p><a href="#">Link</a></p>
+                    <!--
+                    <form action="/ProjectController">
+                        <button value=""
+                    </form>
+                    -->
+                    <p><a id="project1" href="#">Project - 1</a></p>
                     <p><a href="#">Link</a></p>
                     <p><a href="#">Link</a></p>
                 </div>
@@ -156,7 +161,9 @@
         </div>
         <div class="col-sm-8 text-left" style="margin: 0px; padding: 1px; overflow: scroll; height: 1000%;">
             <div class="panel panel-default panels" style="height: 1000%">
-                <div class="panel-heading">${projectName} Editor</div>
+                <div  class="panel-heading">
+                    <p id="projectHeading"> Editor </p>
+                </div>
                 <div class="panel-body" style="height: 1000%;">
                     Panel Content:
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>

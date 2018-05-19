@@ -15,8 +15,9 @@ public class LogoutController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        //RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        //dispatcher.include(request, response);
         request.getSession().invalidate();
-        dispatcher.forward(request, response);
-        }
+        response.sendRedirect("index.jsp");
+    }
 }
