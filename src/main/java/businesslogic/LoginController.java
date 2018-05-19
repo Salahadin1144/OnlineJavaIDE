@@ -16,6 +16,8 @@ public class LoginController extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("POST method called...");
+        request.setAttribute("projectName", "Sample Project");
+
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
 

@@ -16,6 +16,10 @@
             padding: 1px;
         }
 
+        #content {
+            height: 100%;
+        }
+
         .panels{
             height: 100%;
             margin: 0px;
@@ -27,9 +31,9 @@
             border-radius: 0;
         }
 
-        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed)
         .row.content {height: 450px}
-
+        */
         /* Set gray background color and 100% height */
         .sidenav {
             padding-top: 20px;
@@ -50,7 +54,8 @@
                 height: auto;
                 padding: 15px;
             }
-            .row.content {height:auto;}
+
+
         }
     </style>
 </head>
@@ -80,9 +85,9 @@
     </div>
 </nav>
 
-<div class="container-fluid text-center">
-    <div class="row content">
-        <div  class="col-sm-2 sidenav" style="margin: 0px; padding: 1px; overflow: scroll">
+<div class="container-fluid text-center" >
+    <div id="content" class="row content" style="height: 700px;">
+        <div  class="col-sm-2 sidenav" style="margin: 0px; padding: 1px; overflow: scroll; height: 100%">
             <div id="explorer" class="panel panel-default panels" >
                 <div class="panel-heading" style="text-align: left">Project Explorer</div>
                 <div class="panel-body">
@@ -93,10 +98,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-8 text-left" style="margin: 0px; padding: 1px; overflow: scroll; height: 100%;">
-            <div class="panel panel-default panels" >
-                <div class="panel-heading"><h1>Welcome</h1></div>
-                <div class="panel-body" style="height: 100%;">
+        <div class="col-sm-8 text-left" style="margin: 0px; padding: 1px; overflow: scroll; height: 1000%;">
+            <div class="panel panel-default panels" style="height: 1000%">
+                <div class="panel-heading">${projectName} Editor</div>
+                <div class="panel-body" style="height: 1000%;">
                     Panel Content:
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <hr>
@@ -105,9 +110,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-2 sidenav" style="margin: 0px; padding: 1px; overflow: scroll">
-            <div class="panel panel-default panels" >
-                <div class="panel-heading">Panel Heading</div>
+        <div class="col-sm-2 sidenav" style="margin: 0px; padding: 1px; overflow: scroll; height: 100%">
+            <div class="panel panel-default panels" style="height: 100%">
+                <div class="panel-heading">Properties</div>
                 <div class="panel-body">
                     Panel Content:
                     <div class="well">
@@ -123,8 +128,8 @@
 </div>
 
 <footer class="container-fluid text-center" style="width: 100%; margin: 0px; padding: 0px; overflow: scroll; position: fixed; bottom: 0px;">
-    <div class="panel panel-default panels">
-        <div class="panel-heading">Panel Heading</div>
+    <div class="panel panel-default panels" style="height: 100%">
+        <div class="panel-heading">Output</div>
         <div class="panel-body">
             Panel Content:
             <p>&copy;2018</p>
