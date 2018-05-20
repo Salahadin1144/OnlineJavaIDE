@@ -8,7 +8,7 @@
     <!--link rel="stylesheet" href="OnlineJavaIDE.css"-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../js/project.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
         * {
@@ -23,13 +23,14 @@
 
         .panels{
             height: 100%;
+            width: 100%;
             margin: 0px;
             padding: 1px;
         }
 
         .panel-heading{
             height: 32px;
-
+            font-weight: bold;
             vertical-align: text-top;
         }
 
@@ -85,7 +86,43 @@
         <div class="collapse navbar-collapse button-menu" style="background-color: black">
             <ul class="nav navbar-nav">
                 <li><a href="#"><i class="fa fa-home"></i> HOME</a></li>
-                <li><a href="#">Berry</a></li>
+                <li>
+                    <a id="createNewProject" href="#" data-toggle="modal" data-target="#createNewProjectModal">
+                        Create New Project
+                    </a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="createNewProjectModal" tabindex="-1" aria-labelledby="exampleModalCenterTitle">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">New Project Form</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" method="get">
+                                        <label>
+                                            Project Name:
+                                            <input id="txtProjectName" name="txtProjectName" style="width: 400px">
+                                        </label>
+                                        <label id="createNewProjectErrorMessage" style="margin-left: 90px; color: red"></label>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <form method="post">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <input type='submit'
+                                               id="btnCreateProject"
+                                               name="btnCreateProject"
+                                               class="btn btn-primary enableOnInput"
+                                               value="Create" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="#">BLa</a></li>
                 <li><a href="#">BLABLA</a></li>
             </ul>
@@ -148,11 +185,19 @@
                 <div class="panel-heading" style="text-align: left">Project Explorer</div>
                 <div class="panel-body">
                     Panel Content:
-                    <!--
-                    <form action="/ProjectController">
-                        <button value=""
-                    </form>
-                    -->
+                    <div class="panel-group panels">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#collapse1">Collapsible panel</a>
+                                </h4>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse">
+                                <div class="panel-body">Panel Body</div>
+                                <div class="panel-footer">Panel Footer</div>
+                            </div>
+                        </div>
+                    </div>
                     <p><a id="project1" href="#">Project - 1</a></p>
                     <p><a href="#">Link</a></p>
                     <p><a href="#">Link</a></p>

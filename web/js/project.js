@@ -1,4 +1,6 @@
 $(function () {
+        $('.enableOnInput').prop('disabled', true);
+
         $("#project1").click(function () {
             $.get("/ProjectController")
                 .done(ajaxSuccess)
@@ -9,14 +11,14 @@ $(function () {
             $("#createNewProjectModal").showModal();
         });
 
-        $("#txtProjectName").onkeyup(function () {
-            var txtProjName = $("#txtProjectName");
-            if($(this).val() != '' ){
-                $('.enableOnInput').prop('disabled', true);
-                alert(txtProjName.value);
-            }else{
+        $("#txtProjectName").keyup(function () {
+            // $(this).val().length > 0 &&
+            if(validate($(this).val())){
+                $("#createNewProjectErrorMessage").text("");
                 $('.enableOnInput').prop('disabled', false);
-                alert("Project name cant be blank");
+            }else{
+                $("#createNewProjectErrorMessage").text("Invalid Project Name");
+                $('.enableOnInput').prop('disabled', true);
             }
         });
 
@@ -29,4 +31,9 @@ function ajaxSuccess(data) {
 
 function ajaxFailure() {
     alert("Failure");
+}
+
+function validate(value) {
+    var regex = /^([a-zA-Z_$][a-zA-Z\\d_$]*)$/;
+    return regex.test(value);
 }

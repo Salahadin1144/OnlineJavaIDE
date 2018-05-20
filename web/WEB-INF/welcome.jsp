@@ -101,16 +101,23 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="" method="post">
+                                    <form action="" method="get">
                                         <label>
                                             Project Name:
                                             <input id="txtProjectName" name="txtProjectName" style="width: 400px">
                                         </label>
+                                        <label id="createNewProjectErrorMessage" style="margin-left: 90px; color: red"></label>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button id="btnCreateProject" type="button" class="btn btn-primary enableOnInput" disabled="disabled">Create</button>
+                                    <form method="post">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <input type='submit'
+                                               id="btnCreateProject"
+                                               name="btnCreateProject"
+                                               class="btn btn-primary enableOnInput"
+                                               value="Create" />
+                                    </form>
                                 </div>
                             </div>
                         </div>
