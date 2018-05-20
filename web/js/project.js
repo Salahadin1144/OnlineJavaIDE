@@ -76,9 +76,9 @@ $(function () {
         function () {
             var className = $("#txtClassName").val();
             //alert(className);
-            var code = $("<code contenteditable='true' id='\"+className+\"' style='font-family: Consolas; font-size: 14px; width: 100%; height: 100%'>");
+            var code = $("<div contenteditable='true'><code><textarea style='width: 100%; height: 100%;' id='"+className+"'></textarea></code>></div>");
             code.html("public class "+className + "{ " +
-                "\n" +
+                "" +
                 "}");
             //var newTag = code.appendTo()
             //    "<div contenteditable='true'> <code id='"+className+"' style='font-family: Consolas; font-size: 14px; width: 100%; height: 100%'>"
@@ -109,6 +109,17 @@ $(function () {
         }
     );
 
+    document.keypress(function (e) {
+        if (window.event && window.event.keyCode == 9) { // New action for TAB
+            alert('The TAB key was pressed');
+            return false;
+        }
+    });
+
+    $("#editor").keypress(function (e) {
+
+    });
+
 });
 
 function ajaxSuccess(data) {
@@ -124,3 +135,18 @@ function validate(value) {
     var regex = /^([a-zA-Z_$][a-zA-Z\\d_$]*)$/;
     return regex.test(value);
 }
+
+function initTabinput() {
+    window.addEventListener('keydown', tabListener.bind(code), false);
+}
+
+var code = document.getElementsByTagName('code');
+var tabListener = function (evt) {
+    if ('keyCode' in evt && evt.keyCode === 9) {
+
+        evt.execCommand('Indent');
+        //evt.preventDefault();
+    }
+};
+
+window.addEventListener('load', initTabinput, false);
