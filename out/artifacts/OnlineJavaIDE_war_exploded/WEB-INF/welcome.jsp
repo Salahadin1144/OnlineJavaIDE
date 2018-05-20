@@ -230,7 +230,11 @@
                 </div>
                 <div  class="panel-body" style="height: 1000%;">
                     Panel Content:
-                    <div id="editor" style="width: 100%; height: 100%">
+                    <div  style="width: 100%; height: 100%">
+
+                        <input type="button" value="run">
+
+                        <code id="editor"></code>
 
                     </div>
                 </div>

@@ -76,10 +76,8 @@ $(function () {
         function () {
             var className = $("#txtClassName").val();
             //alert(className);
-            var code = $("<code contenteditable='true' id='\"+className+\"' style='font-family: Consolas; font-size: 14px; width: 100%; height: 100%'>");
-            code.html("public class "+className + "{ " +
-                "\n" +
-                "}");
+            $("<textarea style=\"width:100%; height:50%;\">").html("public class"+className+"{}").appendTo("#editor");
+
             //var newTag = code.appendTo()
             //    "<div contenteditable='true'> <code id='"+className+"' style='font-family: Consolas; font-size: 14px; width: 100%; height: 100%'>"
             //                + "public class "+className + "{ <br/> <br/>}"
@@ -87,7 +85,7 @@ $(function () {
             //newTag.css("width", "100%").css("height","100%");
             //code.appendTo("#"+className)
             //alert(newTag);
-            code.appendTo("#editor");
+            //code.appendTo("#editor");
             /*
             var newClass = { className: className };
             $.post( "/ClassController", newClass)
