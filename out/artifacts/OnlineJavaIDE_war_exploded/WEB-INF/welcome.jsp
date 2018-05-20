@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>BSF Online Java IDE</title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -40,6 +40,15 @@
         .navbar {
             margin-bottom: 0;
             border-radius: 0;
+        }
+
+        #editor{
+            font-family: 'DejaVu Sans Mono', monospace;
+            border: 2px solid lightgrey;
+            border-radius: 6px;
+            font-size: 13pt;
+            color: #000;
+            padding: 10px;
         }
 
         /* Set height of the grid so .sidenav can be 100% (adjust as needed)
@@ -192,8 +201,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-8 text-left" style="margin: 0px; padding: 1px; overflow: scroll; height: 1000%;">
-            <div class="panel panel-default panels" style="height: 1000%">
+        <div class="col-sm-8 text-left" style="margin: 0px; padding: 1px; overflow: scroll; height: 100%;">
+            <div class="panel panel-default panels" style="height: 100%">
                 <div  class="panel-heading">
                     <p id="projectHeading"> Editor </p>
                 </div>
@@ -228,10 +237,11 @@
                         </div>
                     </div>
                 </div>
-                <div  class="panel-body" style="height: 1000%;">
-                    Panel Content:
-                    <div id="editor" style="width: 100%; height: 100%">
+                <div  class="panel-body" style="height: 100%;">
+                    <div>
+                        <div id="editor" style="width: 100%; height: 100%">
 
+                        </div>
                     </div>
                 </div>
             </div>
