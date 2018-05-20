@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.nio.file.Files;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
 @WebServlet("/ProjectController")
@@ -26,8 +28,8 @@ public class ProjectController extends HttpServlet {
 
         String projectName = request.getParameter("projectName");
         User user = (User) request.getSession().getAttribute("userInfo");
-
-        Project project = new Project(""+120, projectName, user.getUserName());
+        String pid = LocalDateTime.now().toString();
+        Project project = new Project(""+pid, projectName, user.getUserName());
 
         System.out.println("Project: "+project);
 
@@ -57,20 +59,24 @@ public class ProjectController extends HttpServlet {
     }
 
     private boolean createProject(Project project) {
+        boolean output = false;
         File userProjects = new File("/Users/saladin/BSF-PROJECTS/"+project.getProjectOwner()+"_PROJECT");
         if(!userProjects.exists()){
             if(userProjects.mkdir()){
-                System.out.println("");
-                File userProject = new File(userProjects.getPath()+"/SBF"+project.getProjectName()+""+project.getProjectOwner()+""+project.getProjectId());
-                if(!userProject.exists()){
-                    if(userProject.mkdir()){
-                        System.out.println("Project created");
-                        return true;
-                    }
-                }
+                System.out.println("User Projects created!");
+            }
+        }else{
+            System.out.println("User Projects already exist!");
+        }
+
+        File userProject = new File(userProjects.getPath()+"/SBF"+""+project.getProjectOwner()+""+project.getProjectName());
+        if(!userProject.exists()){
+            if(userProject.mkdir()){
+                System.out.println("Project created!");
+                output = true;
             }
         }
-        return false;
+        return output;
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
