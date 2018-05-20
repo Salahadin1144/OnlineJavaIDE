@@ -9,7 +9,9 @@
     <!--link rel="stylesheet" href="OnlineJavaIDE.css"-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../js/project.js"></script>
+    <script src="../js/prism.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/prism.css" type="text/css" rel="stylesheet"></link>
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
         * {
@@ -228,7 +230,7 @@
                 </div>
                 <div  class="panel-body" style="height: 1000%;">
                     Panel Content:
-                    <div id="editor">
+                    <div id="editor" style="width: 100%; height: 100%">
 
                     </div>
                 </div>

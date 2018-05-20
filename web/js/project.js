@@ -75,13 +75,19 @@ $(function () {
     $("#btnCreateClass").click(
         function () {
             var className = $("#txtClassName").val();
-            alert(className);
-            var code = $("<code>").html("<p>public class "+className + "{ \n \n}</p>>");
-            var newTag = $("<textarea id='"+className+"' cols='80' rows='10'>");
-            newTag.css("width", "100%").css("height","100%");
-            code.appendTo("#"+className)
-            alert(newTag);
-            newTag.appendTo("#editor");
+            //alert(className);
+            var code = $("<code contenteditable='true' id='\"+className+\"' style='font-family: Consolas; font-size: 14px; width: 100%; height: 100%'>");
+            code.html("public class "+className + "{ " +
+                "\n" +
+                "}");
+            //var newTag = code.appendTo()
+            //    "<div contenteditable='true'> <code id='"+className+"' style='font-family: Consolas; font-size: 14px; width: 100%; height: 100%'>"
+            //                + "public class "+className + "{ <br/> <br/>}"
+            //                + "</code></div>";
+            //newTag.css("width", "100%").css("height","100%");
+            //code.appendTo("#"+className)
+            //alert(newTag);
+            code.appendTo("#editor");
             /*
             var newClass = { className: className };
             $.post( "/ClassController", newClass)
