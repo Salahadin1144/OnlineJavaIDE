@@ -1,4 +1,4 @@
-package businesslogic;
+package businesslogic.controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

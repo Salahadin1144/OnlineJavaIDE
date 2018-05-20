@@ -1,8 +1,9 @@
-package businesslogic;
+package businesslogic.controller;
+
+import businesslogic.model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;

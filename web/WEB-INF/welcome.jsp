@@ -110,13 +110,13 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <form method="post">
+                                    <form method="dialog">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <input type='submit'
-                                               id="btnCreateProject"
-                                               name="btnCreateProject"
-                                               class="btn btn-primary enableOnInput"
-                                               value="Create" />
+                                        <button id="btnCreateProject"
+                                                name="btnCreateProject"
+                                                class="btn btn-primary enableOnInput"
+                                                data-dismiss="modal"
+                                                >Create</button>
                                     </form>
                                 </div>
                             </div>

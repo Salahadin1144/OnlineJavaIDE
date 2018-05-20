@@ -22,6 +22,24 @@ $(function () {
             }
         });
 
+        $("#btnCreateProject").click(
+            function () {
+                var projectName = $("#txtProjectName").val();
+                alert(projectName);
+                var project = { projectName: projectName };
+                $.post( "/ProjectController", project)
+                    .done(function( data ) {
+                        $("#createNewProjectModal").hide();
+                        if(data !== null)
+                            alert(data.projectName + " "+ data.projectId + " "+data.projectOwner);
+                    })
+                    .fail(function () {
+                        alert( "Failure" );
+                    })
+                ;
+            }
+        );
+
 });
 
 function ajaxSuccess(data) {

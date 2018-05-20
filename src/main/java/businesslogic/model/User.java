@@ -1,4 +1,4 @@
-package businesslogic;
+package businesslogic.model;
 
 public class User {
 

@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>login</servlet-name>
-        <servlet-class>businesslogic.LoginController</servlet-class>
+        <servlet-class>businesslogic.controller.LoginController</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -16,7 +16,7 @@
 
     <servlet>
         <servlet-name>logout</servlet-name>
-        <servlet-class>businesslogic.LogoutController</servlet-class>
+        <servlet-class>businesslogic.controller.LogoutController</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -27,7 +27,7 @@
 
     <servlet>
         <servlet-name>projectController</servlet-name>
-        <servlet-class>businesslogic.ProjectController</servlet-class>
+        <servlet-class>businesslogic.controller.ProjectController</servlet-class>
     </servlet>
 
     <servlet-mapping>

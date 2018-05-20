@@ -1,4 +1,6 @@
-package businesslogic;
+package businesslogic.controller;
+
+import businesslogic.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
