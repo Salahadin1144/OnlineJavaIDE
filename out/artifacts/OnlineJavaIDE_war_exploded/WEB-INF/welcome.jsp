@@ -1,3 +1,4 @@
+<%@ taglib prefix="bsf" uri="http://bsf.edu" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,29 +179,14 @@
     </nav>
 </div>
 
+
 <div class="container-fluid text-center" >
     <div id="content" class="row content" style="height: 700px;">
         <div  class="col-sm-2 sidenav" style="margin: 0px; padding: 1px; overflow: scroll; height: 100%">
             <div id="explorer" class="panel panel-default panels" >
                 <div class="panel-heading" style="text-align: left">Project Explorer</div>
-                <div class="panel-body">
-                    Panel Content:
-                    <div class="panel-group panels">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" href="#collapse1">Collapsible panel</a>
-                                </h4>
-                            </div>
-                            <div id="collapse1" class="panel-collapse collapse">
-                                <div class="panel-body">Panel Body</div>
-                                <div class="panel-footer">Panel Footer</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p><a id="project1" href="#">Project - 1</a></p>
-                    <p><a href="#">Link</a></p>
-                    <p><a href="#">Link</a></p>
+                <div id="projectsList" class="panel-body">
+                    Projects List:
                 </div>
             </div>
         </div>
@@ -209,12 +195,42 @@
                 <div  class="panel-heading">
                     <p id="projectHeading"> Editor </p>
                 </div>
-                <div class="panel-body" style="height: 1000%;">
+                <div class="modal fade" id="createNewClassModal" tabindex="-1" aria-labelledby="exampleModalCenterTitle">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleClassModalLongTitle">New Class Form</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" method="get">
+                                    <label>
+                                        Class Name:
+                                        <input id="txtClassName" name="txtClassName" style="width: 400px">
+                                    </label>
+                                    <label id="createNewClassErrorMessage" style="margin-left: 90px; color: red"></label>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <form method="dialog">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button id="btnCreateClass"
+                                            name="btnCreateClass"
+                                            class="btn btn-primary enableOnInput"
+                                            data-dismiss="modal"
+                                    >Create</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div  class="panel-body" style="height: 1000%;">
                     Panel Content:
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
+                    <div id="editor">
+
+                    </div>
                 </div>
             </div>
         </div>

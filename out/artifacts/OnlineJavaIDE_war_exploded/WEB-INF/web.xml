@@ -4,6 +4,13 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+   <jsp-config>
+       <taglib>
+           <taglib-uri>http://bsf.edu</taglib-uri>
+           <taglib-location>/WEB-INF/bsftag.tld</taglib-location>
+       </taglib>
+   </jsp-config>
+
     <servlet>
         <servlet-name>login</servlet-name>
         <servlet-class>businesslogic.controller.LoginController</servlet-class>
