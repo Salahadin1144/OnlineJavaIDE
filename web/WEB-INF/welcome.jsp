@@ -20,10 +20,6 @@
             font-size: 12px;
         }
 
-        .keywords {
-            color: darkorchid;
-        }
-
         #content {
             height: 100%;
         }
@@ -208,7 +204,8 @@
         <div class="col-sm-8 text-left" style="margin: 0px; padding: 1px; overflow: scroll; height: 100%;">
             <div class="panel panel-default panels" style="height: 100%">
                 <div  class="panel-heading">
-                    <p id="projectHeading"> Editor </p>
+                    <span id="projectHeading"> Editor </span>
+                    <button id="executeCode" style="float: right;" class="btn-default btn-md" type="button">Execute</button>
                 </div>
                 <div class="modal fade" id="createNewClassModal" tabindex="1" aria-labelledby="classModalCenterTitle">
                     <div class="modal-dialog modal-dialog-centered">
@@ -242,7 +239,7 @@
                     </div>
                 </div>
                 <div id="editor"  class="panel-body" style="width: 100%; height: 100%;">
-                    <textarea style="width: 100%; height: 100%; padding: 5px" id="sourceCode">
+                    <textarea style="width: 100%; height: 100%;" id="sourceCode">
 
                     </textarea>
                 </div>
