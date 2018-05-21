@@ -20,6 +20,10 @@
             font-size: 12px;
         }
 
+        strong{
+            color: darkorchid;
+        }
+
         #content {
             height: 100%;
         }
@@ -206,11 +210,11 @@
                 <div  class="panel-heading">
                     <p id="projectHeading"> Editor </p>
                 </div>
-                <div class="modal fade" id="createNewClassModal" tabindex="-1" aria-labelledby="exampleModalCenterTitle">
+                <div class="modal fade" id="createNewClassModal" tabindex="1" aria-labelledby="classModalCenterTitle">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleClassModalLongTitle">New Class Form</h5>
+                                <h5 class="modal-title" id="classClassModalLongTitle">New Class Form</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

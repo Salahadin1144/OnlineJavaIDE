@@ -43,8 +43,8 @@ $(function () {
                             "                            </div>\n" +
                             "                            <div id='collapse"+random+"' class='panel-collapse collapse'>\n" +
                             "                                <div id='mainProject' class=\"panel-body\" style='text-align: left; margin-left: 20px'>" +
-                                "                             <a id='createNewClass'" +
-                                "                                 href='#' data-toggle=\"modal\" data-target=\"#createNewClassModal\"> Create New Class</a><br/><hr/></div>\n" +
+                                "                             <button id='createNewClass' style='width: 100%; height: 30px'" +
+                                "                                 href='#' data-toggle='modal' data-target='#createNewClassModal'>Create New Class</button><br/><hr/></div>\n" +
                             "                            </div>\n" +
                             "                        </div>\n" +
                             "                    </div>";
@@ -59,14 +59,20 @@ $(function () {
                 ;
             }
         );
-
+    /*
     $("#createNewClass").click(function () {
         //selectedProjectId = this.parent().id;
+        var code = $("#sourceCode");
+        if(code.text().length === 0 ){
+            alert("You can create a class");
+            $("#createNewClassModal").showModal();
+        }else{
+            alert("Do you want to save your work? Y/N");
+        }
 
-        $("#createNewClassModal").showModal();
         //alert("Hello World");
     });
-
+    */
     $("#txtClassName").keyup(function () {
         // $(this).val().length > 0 &&
         if(validate($(this).val())){
@@ -80,10 +86,15 @@ $(function () {
 
     $("#btnCreateClass").click(
         function () {
+
+            var code = $("#sourceCode");
+
+
+
             var className = $("#txtClassName").val();
             //alert(className);
-            var code = $("#sourceCode");
-            code.text("public class "+className + "{ " +
+
+            code.html("public class "+className + "{ " +
                 "" +
                 "}");
             var classHtml = "<a id='"+className+"'  href='#'>"+className+"</a>";
@@ -118,15 +129,19 @@ $(function () {
         }
     );
 
-    document.keypress(function (e) {
-        if (window.event && window.event.keyCode == 9) { // New action for TAB
-            alert('The TAB key was pressed');
+    $("#sourceCode").keydown(function (e) {
+        var keyCode = e.keyCode || e.which;
+
+        if (keyCode === 9) {
+            e.preventDefault();
+            var start = this.selectionStart;
+            var end = this.selectionEnd;
+            var val = this.value;
+
+            this.value = val.substring(0, start) + "\t" + val.substring(end);
+            this.selectionStart = this.selectionEnd = start + 1;
             return false;
         }
-    });
-
-    $("#editor").keypress(function (e) {
-
     });
 
 });
@@ -141,21 +156,6 @@ function ajaxFailure() {
 }
 
 function validate(value) {
-    var regex = /^([a-zA-Z_$][a-zA-Z\\d_$]*)$/;
+    var regex = /^([a-zA-Z_$][a-zA-Z0-9_$]*)$/;
     return regex.test(value);
 }
-
-function initTabinput() {
-    window.addEventListener('keydown', tabListener.bind(code), false);
-}
-
-var code = document.getElementsByTagName('code');
-var tabListener = function (evt) {
-    if ('keyCode' in evt && evt.keyCode === 9) {
-
-        evt.execCommand('Indent');
-        //evt.preventDefault();
-    }
-};
-
-window.addEventListener('load', initTabinput, false);
