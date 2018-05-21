@@ -10,6 +10,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../js/project.js"></script>
     <script src="../js/prism.js"></script>
+    <link href="blast.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://julian.com/research/velocity/build/jquery.velocity.min.js"></script>
+    <script src="http://velocityjs.org/build/velocity.ui.js"></script>
+    <script src="http://velocityjs.org/blast/build/jquery.blast.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="css/prism.css" type="text/css" rel="stylesheet"></link>
     <style>
@@ -42,7 +47,7 @@
             border-radius: 0;
         }
 
-        #editor{
+        #sourceCode{
             font-family: 'DejaVu Sans Mono', monospace;
             border: 2px solid lightgrey;
             border-radius: 6px;
@@ -238,10 +243,12 @@
                         </div>
                     </div>
                 </div>
-                <div id="editor"  class="panel-body" style="width: 100%; height: 100%;">
+                <div id="sourceCode" contenteditable="true" style="width: 100%; height: 100%;">
+                    <!--
                     <textarea style="width: 100%; height: 100%;" id="sourceCode">
 
                     </textarea>
+                    -->
                 </div>
             </div>
         </div>
