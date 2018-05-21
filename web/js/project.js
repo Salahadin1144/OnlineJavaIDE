@@ -129,7 +129,7 @@ $(function () {
         }
     );
 
-    $("#sourceCode").keydown(function (e) {
+    $("#sourceCode").keydown( function (e) {
         var keyCode = e.keyCode || e.which;
 
         if (keyCode === 9) {
@@ -142,6 +142,39 @@ $(function () {
             this.selectionStart = this.selectionEnd = start + 1;
             return false;
         }
+
+        if (e.keyCode == 32){
+            alert("Enter Key pressed");
+            var text = $("#sourceCode").text();//.replace(/[\s]+/g, " ").trim();
+            var word = text.split(/[\s]+/);
+            var newHTML = "";
+
+            $.each(word, function(index, value){
+
+                switch(value){
+                    case "public":
+                    case "static":
+                    case "void":
+                    case "class":
+                        newHTML += "<span style='color: darkorchid'>" + value + "&nbsp;</span>";
+                        break;
+                    default:
+                        newHTML += "<span>" + value + "&nbsp;</span>";
+                }
+            });
+            $("#sourceCode").html(newHTML);
+
+            //// Set cursor postion to end of text
+            var child = $("#sourceCode").children();
+            var range = document.createRange();
+            var sel = window.getSelection();
+            range.setStart(child[child.length - 1], 1);
+            range.collapse(true);
+            sel.removeAllRanges();
+            sel.addRange(range);
+            $("#sourceCode")[0].focus();
+        }
+
     });
 
 });

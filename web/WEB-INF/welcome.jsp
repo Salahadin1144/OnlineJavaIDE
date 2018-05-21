@@ -20,7 +20,7 @@
             font-size: 12px;
         }
 
-        strong{
+        .keywords {
             color: darkorchid;
         }
 
@@ -242,7 +242,7 @@
                     </div>
                 </div>
                 <div id="editor"  class="panel-body" style="width: 100%; height: 100%;">
-                    <textarea style="width: 100%; height: 100%;" id="sourceCode">
+                    <textarea style="width: 100%; height: 100%; padding: 5px" id="sourceCode">
 
                     </textarea>
                 </div>
