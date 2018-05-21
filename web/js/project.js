@@ -1,4 +1,5 @@
 $(function () {
+    var selectedProjectId;
         $('.enableOnInput').prop('disabled', true);
 
         $("#project1").click(function () {
@@ -33,7 +34,7 @@ $(function () {
                         if(data !== null) {
                             //alert(data.projectName + " " + data.projectId + " " + data.projectOwner);
                             var random = Math.floor(Math.random() * 10) + 1;
-                            var newTag = "<div id"+data.projectId+" class=\"panel-group panels\">\n" +
+                            var newTag = "<div  class=\"panel-group panels\" style='height: 100%; width: 100%;'>\n" +
                             "                        <div class=\"panel panel-default\">\n" +
                             "                            <div class=\"panel-heading\">\n" +
                             "                                <h4 class=\"panel-title\">\n" +
@@ -41,13 +42,15 @@ $(function () {
                             "                                </h4>\n" +
                             "                            </div>\n" +
                             "                            <div id='collapse"+random+"' class='panel-collapse collapse'>\n" +
-                            "                                <div class=\"panel-body\">" +
-                                "                             <a class='createNewClass' href='#' data-toggle=\"modal\" data-target=\"#createNewClassModal\"> Create New Class</a></div>\n" +
+                            "                                <div id='mainProject' class=\"panel-body\" style='text-align: left; margin-left: 20px'>" +
+                                "                             <a id='createNewClass'" +
+                                "                                 href='#' data-toggle=\"modal\" data-target=\"#createNewClassModal\"> Create New Class</a><br/><hr/></div>\n" +
                             "                            </div>\n" +
                             "                        </div>\n" +
                             "                    </div>";
                             //alert(newTag);
                             $("<div>").html(newTag).appendTo("#projectsList");
+                            $("#createNewProject").prop("disabled", true);
                         }
                     })
                     .fail(function () {
@@ -57,8 +60,11 @@ $(function () {
             }
         );
 
-    $(".createNewClass").click(function () {
+    $("#createNewClass").click(function () {
+        //selectedProjectId = this.parent().id;
+
         $("#createNewClassModal").showModal();
+        //alert("Hello World");
     });
 
     $("#txtClassName").keyup(function () {
@@ -76,10 +82,13 @@ $(function () {
         function () {
             var className = $("#txtClassName").val();
             //alert(className);
-            var code = $("<div contenteditable='true'><code><textarea style='width: 100%; height: 100%;' id='"+className+"'></textarea></code>></div>");
-            code.html("public class "+className + "{ " +
+            var code = $("#sourceCode");
+            code.text("public class "+className + "{ " +
                 "" +
                 "}");
+            var classHtml = "<a id='"+className+"'  href='#'>"+className+"</a>";
+            var newClass = $("<div>").html(classHtml);
+            newClass.appendTo("#mainProject");
             //var newTag = code.appendTo()
             //    "<div contenteditable='true'> <code id='"+className+"' style='font-family: Consolas; font-size: 14px; width: 100%; height: 100%'>"
             //                + "public class "+className + "{ <br/> <br/>}"
@@ -87,7 +96,7 @@ $(function () {
             //newTag.css("width", "100%").css("height","100%");
             //code.appendTo("#"+className)
             //alert(newTag);
-            code.appendTo("#editor");
+            //code.appendTo("#editor");
             /*
             var newClass = { className: className };
             $.post( "/ClassController", newClass)

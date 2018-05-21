@@ -237,12 +237,10 @@
                         </div>
                     </div>
                 </div>
-                <div  class="panel-body" style="height: 100%;">
-                    <div>
-                        <div id="editor" style="width: 100%; height: 100%">
+                <div id="editor"  class="panel-body" style="width: 100%; height: 100%;">
+                    <textarea style="width: 100%; height: 100%;" id="sourceCode">
 
-                        </div>
-                    </div>
+                    </textarea>
                 </div>
             </div>
         </div>
