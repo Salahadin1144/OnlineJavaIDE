@@ -132,6 +132,19 @@ $(function () {
     $("#sourceCode").keypress(function (e) {
         var keyCode = e.keyCode || e.which;
 
+        if(keyCode === 32){
+
+            //e.preventDefault();
+
+            $(this)
+                .blast({
+                    search: "public"
+                })
+                .css({ color: "darkorchid" })
+                .css({ "font-size": "13pt" });
+
+        }
+
         if (keyCode === 9) {
             e.preventDefault();
             var start = this.selectionStart;
@@ -153,6 +166,8 @@ $(function () {
             .fail(ajaxFailure);
     });
 
+
+
 });
 
 function ajaxSuccess(data) {
@@ -168,3 +183,4 @@ function validate(value) {
     var regex = /^([a-zA-Z_$][a-zA-Z0-9_$]*)$/;
     return regex.test(value);
 }
+
