@@ -15,7 +15,7 @@ public class Executor {
         String output = null;
 
         try {
-            Process proc = rt.exec("/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/bin/java " +
+            Process proc = rt.exec("/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/bin/java " +
                     " -classpath " +
                     projectPath+" "+javaFileName);
             // Process proc = rt.exec("mkdir /Users/<username>/Desktop/test1");

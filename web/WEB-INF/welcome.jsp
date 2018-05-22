@@ -20,7 +20,7 @@
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
         * {
-            margin: 0px;
+            margin: 0;
             padding: 1px;
             font-size: 12px;
         }
@@ -34,7 +34,7 @@
         .panels{
             height: 100%;
             width: 100%;
-            margin: 0px;
+            margin: 0;
             padding: 1px;
         }
 
@@ -89,7 +89,7 @@
 <body>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<div class="container-fluid" style="padding: 0px" >
+<div class="container-fluid" style="padding: 0" >
 
     <nav class="navbar navbar-default nav-menu">
         <div class="navbar-header">
@@ -167,7 +167,7 @@
                                         <p class="text-left small">${userInfo.userName}@gmail.com</p>
                                         <p class="text-left">
                                             <form action="/logout">
-                                                <input class="btn btn-default btn-block type="submit" value="logout">
+                                                <input class="btn btn-default btn-block" type="submit" value="logout">
                                             </form>
                                             <!--  <a href="#" class="btn btn-primary btn-block btn-sm">Logout</a> -->
                                         </p>
@@ -207,7 +207,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-8 text-left" style="margin: 0px; padding: 1px; overflow: scroll; height: 100%;">
+        <div class="col-sm-8 text-left" style="margin: 0; padding: 1px; overflow: scroll; height: 100%;">
             <div class="panel panel-default panels" style="height: 100%">
                 <div  class="panel-heading">
                     <span id="projectHeading"> Editor </span>
@@ -262,10 +262,10 @@
                 <div class="panel-body">
                     Panel Content:
                     <div class="well">
-                        <p>ADS</p>
+                        <p>Enjoy the Editor</p>
                     </div>
                     <div class="well">
-                        <p>ADS</p>
+                        <p>Please let us know your comment</p>
                     </div>
                 </div>
             </div>
@@ -273,7 +273,7 @@
     </div>
 </div>
 
-<div id="outputmodal" class="container-fluid text-center" style="width: 100%; margin: 0px; padding: 0px; overflow: scroll; position: fixed; bottom: 0px;">
+<div id="outputmodal" class="container-fluid text-center" style="width: 100%; margin: 0; padding: 0; overflow: scroll; position: fixed; bottom: 0px;">
     <div class="panel panel-default panels" style="height: 100%">
         <div class="panel-heading">Output</div>
         <div class="panel-body" id="output">
