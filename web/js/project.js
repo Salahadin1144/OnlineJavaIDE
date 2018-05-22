@@ -173,7 +173,7 @@ $(function () {
             .done(function (data) {
                 // alert("Compilation Result: "+data);
                 var output = $("#output");
-                output.css("color", "red") ;
+                output.css("color", "red").css("font-family","'DejaVu Sans Mono', monospace").css("font-size","14pt") ; // font-family: 'DejaVu Sans Mono', monospace
                 output.html("Compilation Result: "+data);
 
             })
