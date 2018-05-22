@@ -1,5 +1,6 @@
 $(function () {
     var selectedProjectId;
+    var activeJavaClass;
         $('.enableOnInput').prop('disabled', true);
 
         $("#project1").click(function () {
@@ -89,10 +90,10 @@ $(function () {
 
             var code = $("#sourceCode");
 
-
-
             var className = $("#txtClassName").val();
             //alert(className);
+
+            activeJavaClass = className;
 
             code.html("public class "+className + "{ " +
                 "" +
@@ -129,42 +130,68 @@ $(function () {
         }
     );
 
-    $("#sourceCode").keypress(function (e) {
-        var keyCode = e.keyCode || e.which;
+    // $("#sourceCode").keypress(function (e) {
+    //     var keyCode = e.keyCode || e.which;
+    //
+    //     if(keyCode === 32){
+    //
+    //         //e.preventDefault();
+    //
+    //        // $(this)
+    //        //     .blast({
+    //        //         search: "public"
+    //        //     })
+    //        //     .css({ color: "darkorchid" });
+    //
+    //         // //e.preventDefault();
+    //         // var start = this.selectionStart;
+    //         // var end = this.selectionEnd;
+    //         // var val = this.value;
+    //         //
+    //         // this.value = val.substring(0, start) + " " + val.substring(end);
+    //         // this.selectionStart = this.selectionEnd = start + 50;
+    //         //return false;
+    //     }
+    //
+    //     if (keyCode === 9) {
+    //         e.preventDefault();
+    //         var start = this.selectionStart;
+    //         var end = this.selectionEnd;
+    //         var val = this.value;
+    //
+    //         this.value = val.substring(0, start) + "\t" + val.substring(end);
+    //         this.selectionStart = this.selectionEnd = start + 1;
+    //         //return false;
+    //     }
+    //
+    //     //$(this).css("font-size", "13pt");
+    // });
 
-        if(keyCode === 32){
+    $("#compileCode").click(function () {
+        var code = $("#sourceCode").val();
+        $.post("/CompilerServlet", { "fileName": activeJavaClass, "src": code})
+            .done(function (data) {
+                // alert("Compilation Result: "+data);
+                var output = $("#output");
+                output.css("color", "red") ;
+                output.html("Compilation Result: "+data);
 
-            //e.preventDefault();
-
-            $(this)
-                .blast({
-                    search: "public"
-                })
-                .css({ color: "darkorchid" })
-                .css({ "font-size": "13pt" });
-
-        }
-
-        if (keyCode === 9) {
-            e.preventDefault();
-            var start = this.selectionStart;
-            var end = this.selectionEnd;
-            var val = this.value;
-
-            this.value = val.substring(0, start) + "\t" + val.substring(end);
-            this.selectionStart = this.selectionEnd = start + 1;
-            return false;
-        }
+            })
+            .fail(ajaxFailure);
     });
 
     $("#executeCode").click(function () {
         var code = $("#sourceCode").val();
-        $.post("/ClassController", { "src": code})
-            .done(function () {
-                alert("success");
+        $.post("/ExecutorServlet", { "fileName": activeJavaClass, "src": code })
+            .done(function (data) {
+                // alert("success");
+                var output = $("#output");
+                output.css("color", "blue") ;
+                output.html("Result: "+data);
             })
             .fail(ajaxFailure);
     });
+
 
 
 

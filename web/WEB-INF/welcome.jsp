@@ -25,6 +25,8 @@
             font-size: 12px;
         }
 
+
+
         #content {
             height: 100%;
         }
@@ -210,7 +212,10 @@
             <div class="panel panel-default panels" style="height: 100%">
                 <div  class="panel-heading">
                     <span id="projectHeading"> Editor </span>
-                    <button id="executeCode" style="float: right;" class="btn-default btn-md" type="button">Execute</button>
+                    <div style="float: right;" >
+                        <button id="compileCode" class="btn-default btn-md" type="button">Compile</button>
+                        <button id="executeCode" class="btn-default btn-md" type="button">Execute</button>
+                    </div>
                 </div>
                 <div class="modal fade" id="createNewClassModal" tabindex="1" aria-labelledby="classModalCenterTitle">
                     <div class="modal-dialog modal-dialog-centered">
@@ -243,12 +248,12 @@
                         </div>
                     </div>
                 </div>
-                <div id="sourceCode" contenteditable="true" style="width: 100%; height: 100%;">
-                    <!--
+                <div id="editor" contenteditable="true" style="width: 100%; height: 100%;">
+
                     <textarea style="width: 100%; height: 100%;" id="sourceCode">
 
                     </textarea>
-                    -->
+
                 </div>
             </div>
         </div>
@@ -269,15 +274,27 @@
     </div>
 </div>
 
-<footer class="container-fluid text-center" style="width: 100%; margin: 0px; padding: 0px; overflow: scroll; position: fixed; bottom: 0px;">
+<div id="outputmodal" class="container-fluid text-center" style="width: 100%; margin: 0px; padding: 0px; overflow: scroll; position: fixed; bottom: 0px;">
     <div class="panel panel-default panels" style="height: 100%">
         <div class="panel-heading">Output</div>
-        <div class="panel-body">
-            Panel Content:
-            <p>&copy;2018</p>
+        <div class="panel-body" id="output">
+
         </div>
     </div>
-</footer>
+</div>
+
+<%--<div class="panel-group panels>--%>
+                        <%--<div class="panel panel-default>--%>
+                            <%--<div class="panel-heading">--%>
+                                    <%--<h4 class="panel-title">--%>
+                                            <%--<a data-toggle="collapse" href="#collapse1">New Project Tag</a>--%>
+                                    <%--</h4>--%>
+                                <%--</div>--%>
+                            <%--<div id="collapse1" class="panel-collapse collapse">--%>
+                                <%--<div class="panel-body">Panel Body</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                   <%--</div>--%>
 
 </body>
 </html>
