@@ -15,12 +15,8 @@ public class Executor {
         String output = null;
 
         try {
-            Process proc = rt.exec("/Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Home/bin/java " +
-                    "--add-exports=java.base/sun.nio.ch=ALL-UNNAMED\n" +
-                    "--add-opens=java.base/java.lang=ALL-UNNAMED\n" +
-                    "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED\n" +
-                    "--add-opens=java.base/java.io=ALL-UNNAMED\n" +
-                    "--add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED -classpath " +
+            Process proc = rt.exec("/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/bin/java " +
+                    " -classpath " +
                     projectPath+" "+javaFileName);
             // Process proc = rt.exec("mkdir /Users/<username>/Desktop/test1");
             // Process proc = rt.exec("ping https://crunchify.com");
