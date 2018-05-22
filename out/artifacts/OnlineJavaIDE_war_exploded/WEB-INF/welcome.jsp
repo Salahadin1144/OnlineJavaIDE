@@ -99,14 +99,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">BSF-Online-Java-Editor</a>
+            <a style="color:white" class="navbar-brand" href="#">BSF-Java-Editor</a>
         </div>
 
         <div class="collapse navbar-collapse button-menu" style="background-color: black">
             <ul class="nav navbar-nav">
-                <li><a href="#"><i class="fa fa-home"></i> HOME</a></li>
+                <li><a style="color:white" href="#"><i style="color:white"  class="fa fa-home"></i> HOME</a></li>
                 <li>
-                    <a id="createNewProject" href="#" data-toggle="modal" data-target="#createNewProjectModal">
+                    <a style="color:white" id="createNewProject" href="#" data-toggle="modal" data-target="#createNewProjectModal">
                         Create New Project
                     </a>
                     <!-- Modal -->
@@ -114,7 +114,7 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">New Project Form</h5>
+                                    <h5  class="modal-title" id="exampleModalLongTitle">New Project Form</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>

@@ -27,6 +27,12 @@ public class CompilerServlet extends HttpServlet {
         System.out.println("PROJECT PATH: "+projectPath);
 
         String fullJavaFilePath = projectPath+"/"+javaFileName+".java";
+        String fullJavaByteCodePath = projectPath+"/"+javaFileName+".class";
+
+        File newJavaByteCodeFile = new File(fullJavaByteCodePath);
+        if (newJavaByteCodeFile.exists()) {
+            newJavaByteCodeFile.delete();
+        }
 
         File newJavaFile = new File(fullJavaFilePath);
 
