@@ -21,15 +21,22 @@ import java.util.stream.Collectors;
 
 @WebServlet("/ProjectController")
 public class ProjectController extends HttpServlet {
+
+    public static String PROJECT_PATH = "";
+    public static String PROJECTS_PATH = "";
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // request.setAttribute("projectName", "Sample Project");
 
         System.out.println("doPOST: Project Controller called....");
 
         String projectName = request.getParameter("projectName");
+
         User user = (User) request.getSession().getAttribute("userInfo");
         String pid = LocalDateTime.now().toString();
         Project project = new Project(""+pid, projectName, user.getUserName());
+        PROJECTS_PATH = "/Users/saladin/BSF-PROJECTS/"+project.getProjectOwner()+"_PROJECT";
+        PROJECT_PATH = PROJECTS_PATH+"/SBF"+""+project.getProjectOwner()+""+project.getProjectName();
 
         System.out.println("Project: "+project);
 
@@ -60,7 +67,7 @@ public class ProjectController extends HttpServlet {
 
     private boolean createProject(Project project) {
         boolean output = false;
-        File userProjects = new File("/Users/Utente/BSF-PROJECTS/"+project.getProjectOwner()+"_PROJECT");
+        File userProjects = new File(PROJECTS_PATH);
         if(!userProjects.exists()){
             if(userProjects.mkdir()){
                 System.out.println("User Projects created!");
@@ -69,7 +76,7 @@ public class ProjectController extends HttpServlet {
             System.out.println("User Projects already exist!");
         }
 
-        File userProject = new File(userProjects.getPath()+"/SBF"+""+project.getProjectOwner()+""+project.getProjectName());
+        File userProject = new File(PROJECT_PATH);//+"/SBF"+""+project.getProjectOwner()+""+project.getProjectName());
         if(!userProject.exists()){
             if(userProject.mkdir()){
                 System.out.println("Project created!");

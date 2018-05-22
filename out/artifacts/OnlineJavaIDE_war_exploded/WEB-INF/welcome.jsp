@@ -2,27 +2,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut-icon" href="../../target/logo3.jpeg" type="image/jpeg"/>
-
     <title>BSF Online Java IDE</title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--link rel="stylesheet" href="OnlineJavaIDE.css"-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="../js/project.js"></script>
     <script src="../js/prism.js"></script>
+    <link href="blast.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://julian.com/research/velocity/build/jquery.velocity.min.js"></script>
+    <script src="http://velocityjs.org/build/velocity.ui.js"></script>
+    <script src="http://velocityjs.org/blast/build/jquery.blast.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type= "text/css" href="WEB-INF/OnlineJavaIDE.css">
-
+    <link href="css/prism.css" type="text/css" rel="stylesheet"></link>
     <style>
-
+        /* Remove the navbar's default margin-bottom and rounded borders */
         * {
             margin: 0px;
             padding: 1px;
             font-size: 12px;
         }
+
+
 
         #content {
             height: 100%;
@@ -46,7 +49,7 @@
             border-radius: 0;
         }
 
-        #editor{
+        #sourceCode{
             font-family: 'DejaVu Sans Mono', monospace;
             border: 2px solid lightgrey;
             border-radius: 6px;
@@ -81,9 +84,6 @@
 
 
         }
-        .statement{
-            color: orange;
-        }
     </style>
 </head>
 <body>
@@ -99,14 +99,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a style="color:white" class="navbar-brand" href="#">BSF-Java-Editor</a>
+            <a class="navbar-brand" href="#">BSF-Online-Java-Editor</a>
         </div>
 
         <div class="collapse navbar-collapse button-menu" style="background-color: black">
             <ul class="nav navbar-nav">
-                <li ><a style="color:white" href="#"><i class="fa fa-home" style="color: white"></i> HOME</a></li>
+                <li><a href="#"><i class="fa fa-home"></i> HOME</a></li>
                 <li>
-                    <a style="color:white" id="createNewProject" href="#" data-toggle="modal" data-target="#createNewProjectModal">
+                    <a id="createNewProject" href="#" data-toggle="modal" data-target="#createNewProjectModal">
                         Create New Project
                     </a>
                     <!-- Modal -->
@@ -142,15 +142,15 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">new feature</a></li>
+                <li><a href="#">BLa</a></li>
+                <li><a href="#">BLABLA</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-user"></span> 
-                        <strong>${userInfo.userName}</strong>
+                        <strong>User</strong>
                         <span class="glyphicon glyphicon-chevron-down"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -163,11 +163,11 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p  class="text-left"><strong>${userInfo.userName}</strong></p>
-                                        <p class="text-left small">${userInfo.userName}@gmail.com</p>
+                                        <p class="text-left"><strong>User</strong></p>
+                                        <p class="text-left small">user@gmail.com</p>
                                         <p class="text-left">
                                             <form action="/logout">
-                                                <input class="btn btn-default btn-block" type="submit" value="logout">
+                                                <input type="submit" value="logout">
                                             </form>
                                             <!--  <a href="#" class="btn btn-primary btn-block btn-sm">Logout</a> -->
                                         </p>
@@ -181,8 +181,8 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <p>
-                                            <a href="#" class="btn btn-default btn-block">My Profile</a>
-
+                                            <a href="#" class="btn btn-primary btn-block">My Profile</a>
+                                            <a href="#" class="btn btn-danger btn-block">Change Password</a>
                                         </p>
                                     </div>
                                 </div>
@@ -212,7 +212,10 @@
             <div class="panel panel-default panels" style="height: 100%">
                 <div  class="panel-heading">
                     <span id="projectHeading"> Editor </span>
-                    <button id="executeCode" style="float: right;" class="btn-default btn-md" type="button">Execute</button>
+                    <div style="float: right;" >
+                        <button id="compileCode" class="btn-default btn-md" type="button">Compile</button>
+                        <button id="executeCode" class="btn-default btn-md" type="button">Execute</button>
+                    </div>
                 </div>
                 <div class="modal fade" id="createNewClassModal" tabindex="1" aria-labelledby="classModalCenterTitle">
                     <div class="modal-dialog modal-dialog-centered">
@@ -245,11 +248,11 @@
                         </div>
                     </div>
                 </div>
-                <div id="sourceCode1">
+                <div id="editor" contenteditable="true" style="width: 100%; height: 100%;">
 
-                    <div id="sourceCode" contenteditable="true" style="width: 100%; height: 100%">
+                    <textarea style="width: 100%; height: 100%;" id="sourceCode">
 
-                    </div>
+                    </textarea>
 
                 </div>
             </div>
@@ -260,10 +263,10 @@
                 <div class="panel-body">
                     Panel Content:
                     <div class="well">
-                        <p>Enjoy Our Editor</p>
+                        <p>ADS</p>
                     </div>
                     <div class="well">
-                        <p>Please Let Us know Your Comment</p>
+                        <p>ADS</p>
                     </div>
                 </div>
             </div>
@@ -271,15 +274,27 @@
     </div>
 </div>
 
-<footer class="container-fluid text-center" style="width: 100%; margin: 0px; padding: 0px; overflow: scroll; position: fixed; bottom: 0px;">
+<div id="outputmodal" class="container-fluid text-center" style="width: 100%; margin: 0px; padding: 0px; overflow: scroll; position: fixed; bottom: 0px;">
     <div class="panel panel-default panels" style="height: 100%">
         <div class="panel-heading">Output</div>
-        <div class="panel-body">
-            Panel Content:
-            <p> </p>
+        <div class="panel-body" id="output">
+
         </div>
     </div>
-</footer>
+</div>
+
+<%--<div class="panel-group panels>--%>
+                        <%--<div class="panel panel-default>--%>
+                            <%--<div class="panel-heading">--%>
+                                    <%--<h4 class="panel-title">--%>
+                                            <%--<a data-toggle="collapse" href="#collapse1">New Project Tag</a>--%>
+                                    <%--</h4>--%>
+                                <%--</div>--%>
+                            <%--<div id="collapse1" class="panel-collapse collapse">--%>
+                                <%--<div class="panel-body">Panel Body</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                   <%--</div>--%>
 
 </body>
 </html>
