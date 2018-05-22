@@ -60,7 +60,7 @@ public class ProjectController extends HttpServlet {
 
     private boolean createProject(Project project) {
         boolean output = false;
-        File userProjects = new File("/Users/saladin/BSF-PROJECTS/"+project.getProjectOwner()+"_PROJECT");
+        File userProjects = new File("/Users/Utente/BSF-PROJECTS/"+project.getProjectOwner()+"_PROJECT");
         if(!userProjects.exists()){
             if(userProjects.mkdir()){
                 System.out.println("User Projects created!");

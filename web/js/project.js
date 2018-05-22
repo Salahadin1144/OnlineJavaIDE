@@ -30,7 +30,7 @@ $(function () {
                 var project = { projectName: projectName };
                 $.post( "/ProjectController", project)
                     .done(function( data ) {
-                        $("#createNewProjectModal").hide();
+                        $("#createNewProjectModal").hide(); // we can not create multiple projects for now
                         if(data !== null) {
                             //alert(data.projectName + " " + data.projectId + " " + data.projectOwner);
                             var random = Math.floor(Math.random() * 10) + 1;

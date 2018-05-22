@@ -11,11 +11,10 @@ public class UserController {
 
     public UserController() {
         this.userList = new ArrayList<>();
-        this.userList.add(new User("A", "a"));
-        this.userList.add(new User("E", "e"));
-        this.userList.add(new User("I", "i"));
-        this.userList.add(new User("O", "o"));
-        this.userList.add(new User("U", "u"));
+        this.userList.add(new User("Saladin", "s"));
+        this.userList.add(new User("Bertukan", "b"));
+        this.userList.add(new User("Filmon", "f"));
+
     }
 
     public List<User> getUserList() {

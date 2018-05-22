@@ -2,18 +2,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut-icon" href="../../target/logo3.jpeg" type="image/jpeg"/>
+
     <title>BSF Online Java IDE</title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--link rel="stylesheet" href="OnlineJavaIDE.css"-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="../js/project.js"></script>
     <script src="../js/prism.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="css/prism.css" type="text/css" rel="stylesheet"></link>
+    <link rel="stylesheet" type= "text/css" href="WEB-INF/OnlineJavaIDE.css">
+
     <style>
-        /* Remove the navbar's default margin-bottom and rounded borders */
+
         * {
             margin: 0px;
             padding: 1px;
@@ -77,6 +81,9 @@
 
 
         }
+        .statement{
+            color: orange;
+        }
     </style>
 </head>
 <body>
@@ -92,14 +99,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">BSF-Online-Java-Editor</a>
+            <a style="color:white" class="navbar-brand" href="#">BSF-Java-Editor</a>
         </div>
 
         <div class="collapse navbar-collapse button-menu" style="background-color: black">
             <ul class="nav navbar-nav">
-                <li><a href="#"><i class="fa fa-home"></i> HOME</a></li>
+                <li ><a style="color:white" href="#"><i class="fa fa-home" style="color: white"></i> HOME</a></li>
                 <li>
-                    <a id="createNewProject" href="#" data-toggle="modal" data-target="#createNewProjectModal">
+                    <a style="color:white" id="createNewProject" href="#" data-toggle="modal" data-target="#createNewProjectModal">
                         Create New Project
                     </a>
                     <!-- Modal -->
@@ -135,15 +142,15 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="#">BLa</a></li>
-                <li><a href="#">BLABLA</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">new feature</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-user"></span> 
-                        <strong>User</strong>
+                        <strong>${userInfo.userName}</strong>
                         <span class="glyphicon glyphicon-chevron-down"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -156,11 +163,11 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class="text-left"><strong>User</strong></p>
-                                        <p class="text-left small">user@gmail.com</p>
+                                        <p  class="text-left"><strong>${userInfo.userName}</strong></p>
+                                        <p class="text-left small">${userInfo.userName}@gmail.com</p>
                                         <p class="text-left">
                                             <form action="/logout">
-                                                <input type="submit" value="logout">
+                                                <input class="btn btn-default btn-block" type="submit" value="logout">
                                             </form>
                                             <!--  <a href="#" class="btn btn-primary btn-block btn-sm">Logout</a> -->
                                         </p>
@@ -174,8 +181,8 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <p>
-                                            <a href="#" class="btn btn-primary btn-block">My Profile</a>
-                                            <a href="#" class="btn btn-danger btn-block">Change Password</a>
+                                            <a href="#" class="btn btn-default btn-block">My Profile</a>
+
                                         </p>
                                     </div>
                                 </div>
@@ -238,10 +245,12 @@
                         </div>
                     </div>
                 </div>
-                <div id="editor"  class="panel-body" style="width: 100%; height: 100%;">
-                    <textarea style="width: 100%; height: 100%;" id="sourceCode">
+                <div id="sourceCode1">
 
-                    </textarea>
+                    <div id="sourceCode" contenteditable="true" style="width: 100%; height: 100%">
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -251,10 +260,10 @@
                 <div class="panel-body">
                     Panel Content:
                     <div class="well">
-                        <p>ADS</p>
+                        <p>Enjoy Our Editor</p>
                     </div>
                     <div class="well">
-                        <p>ADS</p>
+                        <p>Please Let Us know Your Comment</p>
                     </div>
                 </div>
             </div>
@@ -267,7 +276,7 @@
         <div class="panel-heading">Output</div>
         <div class="panel-body">
             Panel Content:
-            <p>&copy;2018</p>
+            <p> </p>
         </div>
     </div>
 </footer>
