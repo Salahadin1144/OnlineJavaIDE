@@ -35,7 +35,7 @@ public class ProjectController extends HttpServlet {
         User user = (User) request.getSession().getAttribute("userInfo");
         String pid = LocalDateTime.now().toString();
         Project project = new Project(""+pid, projectName, user.getUserName());
-        PROJECTS_PATH = "/Users/saladin/BSF-PROJECTS/"+project.getProjectOwner()+"_PROJECT";
+        PROJECTS_PATH = "/Users/Utente/BSF-PROJECTS/"+project.getProjectOwner()+"_PROJECT";
         PROJECT_PATH = PROJECTS_PATH+"/SBF"+""+project.getProjectOwner()+""+project.getProjectName();
 
         System.out.println("Project: "+project);
